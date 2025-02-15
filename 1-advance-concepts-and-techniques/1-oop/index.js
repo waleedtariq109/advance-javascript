@@ -1,32 +1,33 @@
 "use strict";
 
-class Triangle {
-  constructor(sideA, sideB) {
-    if (!Number.isFinite(sideA) || sideA <= 0)
-      throw new Error(`Invalid a: ${sideA}`);
-
-    if (!Number.isFinite(sideB) || sideB <= 0)
-      throw new Error(`Invalid a: ${sideB}`);
-
-    this.a = sideA;
-    this.b = sideB;
+class BankAccount {
+  constructor(accountNumber, accountHolder, balance = 0) {
+    this.accountNumber = accountNumber;
+    this.accountHolder = accountHolder;
+    this.balance = balance;
   }
 
-  getArea() {
-    return (this.a * this.b) / 2;
+  deposit(amount) {
+    this.balance += amount;
+    console.log(
+      `$${amount} is deposited to your Acc: ${this.accountNumber}.  You current balance is: $${this.balance}.`
+    );
   }
-  getHyptenuse() {
-    return Math.sqrt(this.a ** 2 + this.b ** 2);
+
+  withdraw(amount) {
+    if (this.balance < amount) {
+      throw new Error("Insufficient Funds");
+    }
+    this.balance -= amount;
+    console.log(
+      `$${amount} has been withdrawl from your Acc: ${this.accountNumber}. You current balance is: $${this.balance}.`
+    );
   }
 }
 
-const triangleOne = new Triangle(10, 14);
+const account = new BankAccount("0107954219", "Waleed Tariq", 800);
 
-console.log(triangleOne.a);
-console.log(triangleOne.b);
+console.log(account);
 
-const area = triangleOne.getArea();
-const hyptenuse = triangleOne.getHyptenuse();
-
-console.log(area);
-console.log(hyptenuse);
+account.withdraw(200);
+account.deposit(120);
