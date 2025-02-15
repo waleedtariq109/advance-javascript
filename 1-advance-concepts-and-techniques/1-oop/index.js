@@ -1,6 +1,17 @@
 "use strict";
 
 class Triangle {
+  constructor(sideA, sideB) {
+    if (!Number.isFinite(sideA) || sideA <= 0)
+      throw new Error(`Invalid a: ${sideA}`);
+
+    if (!Number.isFinite(sideB) || sideB <= 0)
+      throw new Error(`Invalid a: ${sideB}`);
+
+    this.a = sideA;
+    this.b = sideB;
+  }
+
   getArea() {
     return (this.a * this.b) / 2;
   }
@@ -9,21 +20,13 @@ class Triangle {
   }
 }
 
-const triangleOne = new Triangle();
+const triangleOne = new Triangle(10, 14);
 
-triangleOne.a = 5;
-triangleOne.b = 12;
-
-console.log(triangleOne);
+console.log(triangleOne.a);
+console.log(triangleOne.b);
 
 const area = triangleOne.getArea();
-const hyptenues = triangleOne.getHyptenuse();
+const hyptenuse = triangleOne.getHyptenuse();
 
 console.log(area);
-console.log(hyptenues);
-
-const typeOfClass = typeof triangleOne;
-const instanceOfClass = triangleOne instanceof Triangle;
-
-console.log(typeOfClass);
-console.log(instanceOfClass);
+console.log(hyptenuse);
