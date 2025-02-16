@@ -12,3 +12,6 @@ class Cat {
 
   static species = "Felis catus";
 }
+
+Cat.staticMethod();
+console.log(Cat.species);
