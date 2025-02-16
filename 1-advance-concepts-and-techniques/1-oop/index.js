@@ -1,32 +1,23 @@
 "use strict";
 
-class Person {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+class Cat {
+  static numOfCats = 0;
+  // Public fields
+  name = "";
+  breed = "";
+  hasTail = true;
 
-  get getFirstName() {
-    return this.firstName;
-  }
-
-  get getLastName() {
-    return this.lastName;
-  }
-
-  set setFullName(name) {
-    const [firstname, lastname] = name.split(" ");
-    this.firstName = firstname;
-    this.lastName = lastname;
+  constructor(name, breed) {
+    this.name = name;
+    this.breed = breed;
+    ++Cat.numOfCats;
   }
 }
 
-const p1 = new Person("Waleed", "Tariq");
+/**
+ * We can access the public fields within and outside of a class
+ */
 
-console.log(p1.getFirstName);
-console.log(p1.getLastName);
+const cat = new Cat("Amjad", "Lahori");
 
-p1.setFullName = "Muhammad Tariq";
-
-console.log(p1.getFirstName);
-console.log(p1.getLastName);
+console.log(cat.name);
