@@ -1,17 +1,19 @@
 "use strict";
 
-class Cat {
-  constructor(name, breed) {
-    this.name = name;
-    this.breed = breed;
+class Circle {
+  constructor(radius) {
+    this._radius = radius;
   }
 
-  static staticMethod() {
-    console.log(this);
+  get diameter() {
+    return this._radius * 2;
   }
-
-  static species = "Felis catus";
 }
 
-Cat.staticMethod();
-console.log(Cat.species);
+/**
+ * We use the getter as a property not as a method by callin it
+ */
+
+const circle = new Circle(3);
+
+console.log(circle.diameter);
