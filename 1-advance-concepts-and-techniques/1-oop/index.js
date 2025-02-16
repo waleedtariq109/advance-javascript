@@ -1,39 +1,32 @@
 "use strict";
 
-class Circle {
-  constructor(radius) {
-    this._radius = radius;
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
-  get radius() {
-    return this._radius;
+  get getFirstName() {
+    return this.firstName;
   }
 
-  get diameter() {
-    return this._radius * 2;
+  get getLastName() {
+    return this.lastName;
   }
 
-  set radius(value) {
-    if (value < 0) {
-      throw new Error("Radius cannot be negative!");
-    } else {
-      this._radius = value;
-    }
+  set setFullName(name) {
+    const [firstname, lastname] = name.split(" ");
+    this.firstName = firstname;
+    this.lastName = lastname;
   }
 }
 
-/**
- * We use the setters as a property not as a method by callin it
- */
+const p1 = new Person("Waleed", "Tariq");
 
-const circle = new Circle(3);
+console.log(p1.getFirstName);
+console.log(p1.getLastName);
 
-console.log(circle.radius, "Radius");
-console.log(circle.diameter, "Diameter");
+p1.setFullName = "Muhammad Tariq";
 
-circle.radius = 4;
-
-console.log(circle.radius, "Radius");
-console.log(circle.diameter, "Diameter");
-
-// circle.radius = -8; // Uncaught Error: Radius cannot be negative!
+console.log(p1.getFirstName);
+console.log(p1.getLastName);
