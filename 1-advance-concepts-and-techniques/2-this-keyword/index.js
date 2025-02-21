@@ -1,17 +1,24 @@
-class Person {
-  constructor(firstName) {
-    this.firstName = firstName;
-  }
+const obj = {
+  firstName: "Waleed",
+  greet(msg) {
+    return `${this.firstName} says ${msg}!`;
+  },
+};
 
-  someMethod(desig = "software engineer") {
-    console.log(this);
-    return `Hi, I am ${this.firstName} and I am a ${desig}`;
-  }
-}
+const persons = {
+  firstName: "Ajmal",
+  lastName: "Ashfaq",
+};
 
-const p1 = new Person("Waleed");
-console.log(p1.someMethod());
+const greet = obj.greet;
 
-const func = p1.someMethod;
+const msg1 = greet.call(persons, "Hello");
+console.log(msg1);
 
-console.log(func.call(p1, "Senior Software Engineer"));
+const msg2 = greet.apply(persons, ["World"]);
+console.log(msg2);
+
+/**
+ * The only difference in call and apply is in .call function we have to
+ * pass the args seperately and in apply we pass the args as an array
+ */
