@@ -10,6 +10,7 @@ class Person {
 }
 
 const p1 = new Person("Waleed");
+
 console.log(p1.someMethod());
 
 const func = p1.someMethod;
