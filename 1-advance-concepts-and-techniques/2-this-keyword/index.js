@@ -5,20 +5,20 @@ const obj = {
   },
 };
 
-const persons = {
+const person1 = {
   firstName: "Ajmal",
-  lastName: "Ashfaq",
 };
 
-const greet = obj.greet;
+const person2 = {
+  firstName: "Junaid",
+};
 
-const msg1 = greet.call(persons, "Hello");
-console.log(msg1);
+const person1Func = obj.greet.bind(person1);
+console.log(person1Func("Hello"));
 
-const msg2 = greet.apply(persons, ["World"]);
-console.log(msg2);
+const person2Func = obj.greet.bind(person2);
+console.log(person2Func("World"));
 
 /**
- * The only difference in call and apply is in .call function we have to
- * pass the args seperately and in apply we pass the args as an array
+ * What bind method is to permanently bind the object with the method which we called .bind on.
  */
